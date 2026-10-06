@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
+import { ProfilePhotoProvider } from './context/ProfilePhotoContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
@@ -19,6 +20,7 @@ import { TestimonialsSection } from './components/TestimonialsSection';
 import { ContactSection } from './components/ContactSection';
 import { CvModal } from './components/CvModal';
 import { Footer } from './components/Footer';
+import { PhotoLockModal } from './components/PhotoLockModal';
 
 function PortfolioAppContent() {
   const [cvModalOpen, setCvModalOpen] = useState(false);
@@ -72,6 +74,9 @@ function PortfolioAppContent() {
 
       {/* Full Authenticated Curriculum Vitae Modal */}
       <CvModal isOpen={cvModalOpen} onClose={() => setCvModalOpen(false)} />
+
+      {/* 100% Real Face-Lock Photo Manager Modal & Persistent Uploader */}
+      <PhotoLockModal />
     </div>
   );
 }
@@ -79,7 +84,9 @@ function PortfolioAppContent() {
 export default function App() {
   return (
     <ThemeProvider>
-      <PortfolioAppContent />
+      <ProfilePhotoProvider>
+        <PortfolioAppContent />
+      </ProfilePhotoProvider>
     </ThemeProvider>
   );
 }

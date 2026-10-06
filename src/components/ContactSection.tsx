@@ -78,9 +78,22 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenCvModal })
             <div className={`p-6 rounded-2xl border space-y-5 shadow-xl ${
               isDark ? 'bg-[#0C182B]/80 border-slate-800' : 'bg-white border-slate-200'
             }`}>
-              <h3 className={`text-base font-bold font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                Direct Professional Contact
-              </h3>
+              <div className="flex items-center gap-3.5 pb-4 border-b border-slate-800/60">
+                <img
+                  src={PERSONAL_INFO.profileImage}
+                  alt={PERSONAL_INFO.name}
+                  referrerPolicy="no-referrer"
+                  className="w-14 h-14 rounded-xl object-cover object-top border border-cyan-500/40 shrink-0 shadow-md"
+                />
+                <div>
+                  <h3 className={`text-base font-bold font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                    {PERSONAL_INFO.name}
+                  </h3>
+                  <div className="text-xs text-cyan-500 font-mono">
+                    Teamcenter / PLM Architect
+                  </div>
+                </div>
+              </div>
 
               <div className="space-y-3.5 text-xs">
                 {/* Email - Cyan Accent */}

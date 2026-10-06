@@ -57,14 +57,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCvModal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Zone 1: Single Text Element Wordmark (Anti-Slop compliant) */}
+          {/* Zone 1: Brand Wordmark with Authentic Profile Photo */}
           <a
             href="#"
-            className={`group flex items-center gap-2 text-lg sm:text-xl font-bold tracking-tight whitespace-nowrap font-display transition-colors ${
+            className={`group flex items-center gap-2.5 text-lg sm:text-xl font-bold tracking-tight whitespace-nowrap font-display transition-colors ${
               isDark ? 'text-white' : 'text-slate-900'
             }`}
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-cyan-400 via-emerald-400 to-amber-400 group-hover:scale-125 transition-transform" />
+            <img
+              src={PERSONAL_INFO.profileImage}
+              alt={PERSONAL_INFO.name}
+              referrerPolicy="no-referrer"
+              className="w-8 h-8 rounded-full object-cover object-top border border-cyan-400/50 shadow-sm shrink-0"
+            />
             <span className="hover:text-cyan-400 transition-colors">
               {PERSONAL_INFO.name}
             </span>

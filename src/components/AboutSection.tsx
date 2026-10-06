@@ -128,9 +128,40 @@ export const AboutSection: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Multi-Color Honors, Education & Certifications */}
+          {/* Right Column: Authentic Profile Portrait, Multi-Color Honors, Education & Certifications */}
           <div className="lg:col-span-5 space-y-6">
             
+            {/* Executive Portrait Card - 100% Authentic Unmodified Photo */}
+            <div className={`rounded-2xl border overflow-hidden shadow-xl ${
+              isDark
+                ? 'bg-[#0C182B]/90 border-cyan-500/30 shadow-black/50'
+                : 'bg-white border-slate-200 shadow-slate-300/40'
+            }`}>
+              <div className="relative h-80 sm:h-96 w-full bg-[#040B16] overflow-hidden">
+                <img
+                  src={PERSONAL_INFO.profileImage}
+                  alt={`${PERSONAL_INFO.name} — Teamcenter / PLM Architect`}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#060D1A] via-[#060D1A]/60 to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-4 right-4">
+                  <div className="text-lg font-extrabold text-white font-display tracking-tight">
+                    {PERSONAL_INFO.name}
+                  </div>
+                  <div className="text-xs font-medium text-cyan-400 font-mono">
+                    Teamcenter / PLM Architect · Lead Design Engineer
+                  </div>
+                </div>
+              </div>
+              <div className={`px-4 py-3 text-xs flex items-center justify-between border-t ${
+                isDark ? 'border-slate-800 text-slate-300 bg-[#081223]' : 'border-slate-100 text-slate-600 bg-slate-50'
+              }`}>
+                <span>SKM Air Conditioning LLC · Sharjah, UAE</span>
+                <span className="font-mono text-cyan-500 font-semibold">20+ Yrs Experience</span>
+              </div>
+            </div>
+
             {/* Honors Card - Radiant Warm Amber & Gold Gradient */}
             <div className={`p-6 rounded-2xl border shadow-xl relative overflow-hidden ${
               isDark

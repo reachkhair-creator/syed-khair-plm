@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import { ArrowRight, FileText, Layers, Cpu, Database, Workflow, Share2, ShieldCheck, CheckCircle2, Sparkles, Palette } from 'lucide-react';
+import { ArrowRight, FileText, Layers, Cpu, Database, Workflow, Share2, ShieldCheck, CheckCircle2, Sparkles, Palette, Box, ClipboardList, Network, CloudCog, Maximize2, X } from 'lucide-react';
 import { useTheme, THEME_OPTIONS, ThemeId } from '../context/ThemeContext';
 
 interface HeroProps {
@@ -9,6 +9,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenCvModal }) => {
   const [activeStackLayer, setActiveStackLayer] = useState<number>(0);
+  const [portraitModalOpen, setPortraitModalOpen] = useState<boolean>(false);
   const { theme, setTheme, isDark } = useTheme();
 
   const stackLayers = [
@@ -99,6 +100,77 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal }) => {
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-emerald-500/08 blur-[150px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Executive PLM Digital Thread Banner (100% Authentic Portrait + Digital Thread Pipeline) */}
+        <div className={`mb-10 rounded-2xl border overflow-hidden shadow-2xl relative ${
+          isDark
+            ? 'bg-gradient-to-r from-[#041022] via-[#071D3B] to-[#05152B] border-cyan-500/30 shadow-black/60'
+            : 'bg-gradient-to-r from-[#061830] via-[#0A2547] to-[#071B36] border-cyan-600/40 shadow-slate-400/30'
+        }`}>
+          {/* Subtle circuit board background pattern */}
+          <div className="absolute inset-0 bg-tech-grid opacity-30 pointer-events-none" />
+          <div className="grid grid-cols-1 md:grid-cols-12 items-center relative z-10">
+            {/* Left: Authentic Unmodified Portrait of Syed Abdul Khair */}
+            <div className="md:col-span-4 lg:col-span-3 relative flex justify-center md:justify-start bg-[#040E1E]/60 border-b md:border-b-0 md:border-r border-cyan-500/20">
+              <button
+                type="button"
+                onClick={() => setPortraitModalOpen(true)}
+                className="group relative w-full max-w-[260px] md:max-w-none h-64 sm:h-72 md:h-64 overflow-hidden focus:outline-none"
+                title="Click to view full-resolution portrait"
+              >
+                <img
+                  src={PERSONAL_INFO.profileImage}
+                  alt={`${PERSONAL_INFO.name} — Teamcenter PLM Architect`}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#041022]/90 via-[#041022]/40 to-transparent pointer-events-none" />
+                <span className="absolute bottom-2.5 right-2.5 inline-flex items-center gap-1 px-2 py-1 rounded-md bg-black/70 text-[10px] font-mono text-cyan-300 border border-cyan-500/30 backdrop-blur-sm">
+                  <Maximize2 className="w-3 h-3" />
+                  <span>Full Portrait</span>
+                </span>
+              </button>
+            </div>
+
+            {/* Right: Teamcenter PLM Architect · Manufacturing Digital Thread */}
+            <div className="md:col-span-8 lg:col-span-9 p-6 sm:p-8 lg:px-10 text-center md:text-left space-y-4">
+              <div className="space-y-1">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight font-display">
+                  Teamcenter PLM Architect
+                </div>
+                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#7CC4FA] tracking-tight font-display">
+                  Manufacturing Digital Thread
+                </div>
+                <p className="text-xs sm:text-sm md:text-base font-medium text-slate-200 pt-1">
+                  Keep Teamcenter Stable · Scalable · Ready for Growth
+                </p>
+              </div>
+
+              {/* CAD -> EBOM -> MBOM -> ERP Visual Pipeline */}
+              <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-4">
+                <div className="flex flex-col items-center gap-1.5 px-3 py-2 rounded-xl bg-[#071E3D]/90 border border-[#0099FF]/40 min-w-[78px]">
+                  <Box className="w-6 h-6 text-[#0099FF]" />
+                  <span className="text-xs font-extrabold tracking-wider text-[#0099FF] font-mono">CAD</span>
+                </div>
+                <ArrowRight className="w-5 h-5 text-[#0099FF] shrink-0" />
+                <div className="flex flex-col items-center gap-1.5 px-3 py-2 rounded-xl bg-[#071E3D]/90 border border-[#0099FF]/40 min-w-[78px]">
+                  <ClipboardList className="w-6 h-6 text-[#0099FF]" />
+                  <span className="text-xs font-extrabold tracking-wider text-[#0099FF] font-mono">EBOM</span>
+                </div>
+                <ArrowRight className="w-5 h-5 text-[#0099FF] shrink-0" />
+                <div className="flex flex-col items-center gap-1.5 px-3 py-2 rounded-xl bg-[#071E3D]/90 border border-[#0099FF]/40 min-w-[78px]">
+                  <Network className="w-6 h-6 text-[#0099FF]" />
+                  <span className="text-xs font-extrabold tracking-wider text-[#0099FF] font-mono">MBOM</span>
+                </div>
+                <ArrowRight className="w-5 h-5 text-[#0099FF] shrink-0" />
+                <div className="flex flex-col items-center gap-1.5 px-3 py-2 rounded-xl bg-[#071E3D]/90 border border-[#0099FF]/40 min-w-[78px]">
+                  <CloudCog className="w-6 h-6 text-[#0099FF]" />
+                  <span className="text-xs font-extrabold tracking-wider text-[#0099FF] font-mono">ERP</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           {/* Left Column: Headline, Summary & Multi-color CTAs */}
@@ -366,6 +438,42 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal }) => {
         </div>
 
       </div>
+
+      {/* Full-Resolution Authentic Portrait Lightbox Modal */}
+      {portraitModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4"
+          onClick={() => setPortraitModalOpen(false)}
+        >
+          <div
+            className="relative max-w-md w-full rounded-2xl overflow-hidden border border-cyan-500/40 bg-[#060D1A] shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="px-4 py-3 bg-[#0C182B] border-b border-slate-800 flex items-center justify-between">
+              <div>
+                <div className="text-sm font-bold text-white font-display">{PERSONAL_INFO.name}</div>
+                <div className="text-[11px] text-cyan-400 font-mono">Teamcenter / PLM Architect · BMIDE Specialist</div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setPortraitModalOpen(false)}
+                className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                aria-label="Close portrait preview"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="bg-[#040B16] flex items-center justify-center">
+              <img
+                src={PERSONAL_INFO.profileImage}
+                alt={PERSONAL_INFO.name}
+                referrerPolicy="no-referrer"
+                className="w-full max-h-[75vh] object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

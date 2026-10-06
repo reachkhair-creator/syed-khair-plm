@@ -7,10 +7,12 @@ import {
   MaturityCriterion,
   ProfessionalStudy
 } from '../types/portfolio';
+import profilePhotoUrl from '../assets/images/syed-khair-profile.jpg';
 
 export const PERSONAL_INFO = {
   name: 'Syed Abdul Khair',
   shortName: 'Syed Khair',
+  profileImage: profilePhotoUrl,
   headline: 'Teamcenter / PLM Architect · Teamcenter Administrator · BMIDE Specialist',
   eyebrow: 'TEAMCENTER / PLM ARCHITECT · MANUFACTURING DIGITAL THREAD · UAE & GCC',
   location: 'Sharjah, UAE',

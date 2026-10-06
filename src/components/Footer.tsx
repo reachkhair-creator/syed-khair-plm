@@ -2,6 +2,7 @@ import React from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { Mail, Linkedin, ArrowUp } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { ProfilePhotoSlot } from './ProfilePhotoSlot';
 
 interface FooterProps {
   onOpenCvModal: () => void;
@@ -24,10 +25,18 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCvModal }) => {
           isDark ? 'border-slate-800' : 'border-slate-200'
         }`}>
           
-          {/* Brand & Narrative */}
+          {/* Brand & Narrative with 48px Real Profile Photo */}
           <div className="lg:col-span-5 space-y-3">
-            <div className={`text-base font-bold font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              {PERSONAL_INFO.name}
+            <div className="flex items-center gap-3">
+              <ProfilePhotoSlot variant="footer-48" />
+              <div>
+                <div className={`text-base font-bold font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                  {PERSONAL_INFO.name}
+                </div>
+                <div className="text-[11px] text-[#0099FF] font-mono">
+                  Teamcenter / PLM Architect
+                </div>
+              </div>
             </div>
             <p className={`text-xs leading-relaxed max-w-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
               Teamcenter PLM Architect & Administrator with 20+ years in HVAC & industrial machinery manufacturing across UAE & GCC. 

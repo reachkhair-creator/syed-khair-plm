@@ -98,38 +98,47 @@ ${PERSONAL_INFO.certifications.map(c => `- ${c.title} (${c.issuer})`).join('\n')
         <div className="p-6 sm:p-10 overflow-y-auto bg-slate-900 text-slate-100 font-sans text-xs sm:text-sm leading-relaxed space-y-8 print:bg-white print:text-black print:p-0">
           
           {/* Document Header */}
-          <div className="border-b border-slate-700 pb-6 space-y-3">
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight print:text-black">
-              {PERSONAL_INFO.name}
-            </h1>
-            <div className="text-sm font-semibold text-[#0099FF] print:text-blue-700">
-              {PERSONAL_INFO.headline}
-            </div>
-            
-            <div className="flex flex-wrap items-center gap-y-1 gap-x-4 text-xs text-slate-300 print:text-gray-700">
-              <span className="flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-[#0099FF]" />
-                {PERSONAL_INFO.location}
-              </span>
-              <span>·</span>
-              <span className="flex items-center gap-1">
-                <Phone className="w-3.5 h-3.5 text-[#0099FF]" />
-                {PERSONAL_INFO.phoneFormatted}
-              </span>
-              <span>·</span>
-              <span className="flex items-center gap-1">
-                <Mail className="w-3.5 h-3.5 text-[#0099FF]" />
-                {PERSONAL_INFO.email}
-              </span>
-              <span>·</span>
-              <a href={PERSONAL_INFO.linkedIn} target="_blank" rel="noreferrer" className="text-[#0099FF] hover:underline">
-                {PERSONAL_INFO.linkedInDisplay}
-              </a>
+          <div className="border-b border-slate-700 pb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+            <div className="space-y-3">
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight print:text-black">
+                {PERSONAL_INFO.name}
+              </h1>
+              <div className="text-sm font-semibold text-[#0099FF] print:text-blue-700">
+                {PERSONAL_INFO.headline}
+              </div>
+              
+              <div className="flex flex-wrap items-center gap-y-1 gap-x-4 text-xs text-slate-300 print:text-gray-700">
+                <span className="flex items-center gap-1">
+                  <MapPin className="w-3.5 h-3.5 text-[#0099FF]" />
+                  {PERSONAL_INFO.location}
+                </span>
+                <span>·</span>
+                <span className="flex items-center gap-1">
+                  <Phone className="w-3.5 h-3.5 text-[#0099FF]" />
+                  {PERSONAL_INFO.phoneFormatted}
+                </span>
+                <span>·</span>
+                <span className="flex items-center gap-1">
+                  <Mail className="w-3.5 h-3.5 text-[#0099FF]" />
+                  {PERSONAL_INFO.email}
+                </span>
+                <span>·</span>
+                <a href={PERSONAL_INFO.linkedIn} target="_blank" rel="noreferrer" className="text-[#0099FF] hover:underline">
+                  {PERSONAL_INFO.linkedInDisplay}
+                </a>
+              </div>
+
+              <div className="text-xs italic text-slate-400 pt-1 print:text-gray-600">
+                {PERSONAL_INFO.tagline}
+              </div>
             </div>
 
-            <div className="text-xs italic text-slate-400 pt-1 print:text-gray-600">
-              {PERSONAL_INFO.tagline}
-            </div>
+            <img
+              src={PERSONAL_INFO.profileImage}
+              alt={PERSONAL_INFO.name}
+              referrerPolicy="no-referrer"
+              className="w-24 h-28 sm:w-28 sm:h-32 rounded-xl object-cover object-top border border-[#0099FF]/40 shadow-lg shrink-0"
+            />
           </div>
 
           {/* Professional Summary */}
